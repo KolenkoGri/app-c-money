@@ -1,0 +1,27 @@
+.button {
+    border: 0;
+    border-radius: 10px;
+    background: linear-gradient(to right, #2e00b1, #a400be);
+    color: #fff;
+    width: 380px;
+    height: 70px;
+    font-size: 18px;
+}
+
+.button:hover {
+    background: linear-gradient(to left, #2e00b1, #a400be);
+}
+
+.button:focus {
+    background: linear-gradient(to left, #2e00b1, #a400be, #2e00b1);
+}
+
+.button:active {
+    background: #2e00b1;
+}
+
+.value {
+    display: block;
+    margin: 0px auto;
+    font-weight: 700;
+}

@@ -1,0 +1,12 @@
+.menu {
+    display: flex;
+    margin-right: 15px;
+}
+
+.item {
+    margin-right: 30px;
+}
+
+.item:last-child {
+    margin-right: 0;
+}

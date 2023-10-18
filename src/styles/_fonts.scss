@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "Comfortaa";
+    font-style: normal;
+    font-weight: 700;
+    src: local("../fonts/Comfortaa-Bold.woff2"),
+        url(./src/fonts/Comfortaa-Bold.woff2) format("woff2"),
+        url(./src/fonts/Comfortaa-Bold.woff) format("woff");
+}
+@font-face {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""), url(./src/fonts/Nunito-Regular.woff2) format("woff2"),
+        url(./src/fonts/Nunito-Regular.woff) format("woff");
+}
+@font-face {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 600;
+    src: local(""), url(./src/fonts/Nunito-SemiBold.woff2) format("woff2"),
+        url(./src/fonts/Nunito-SemiBold.woff) format("woff");
+}
+@font-face {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 700;
+    src: local(""), url(./src/fonts/Nunito-Bold.woff2) format("woff2"),
+        url(./src/fonts/Nunito-Bold.woff) format("woff");
+}

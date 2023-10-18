@@ -1,11 +1,11 @@
 .footer {
-  width: 100%;
-  background-color: #210B36;
-  padding: 30px 0px;
+    width: 100%;
+    background-color: #210b36;
+    padding: 30px 0px;
 }
 
-.footerInner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.footer__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
