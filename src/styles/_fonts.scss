@@ -1,29 +1,32 @@
 @font-face {
-    font-family: "Comfortaa";
+    font-family: Comfortaa;
     font-style: normal;
     font-weight: 700;
-    src: local("../fonts/Comfortaa-Bold.woff2"),
-        url(./src/fonts/Comfortaa-Bold.woff2) format("woff2"),
-        url(./src/fonts/Comfortaa-Bold.woff) format("woff");
+    src: local(""),
+        url(./src/fonts/comfortaa-v40-cyrillic-700.bc1657ffe7d1c15ef896.woff2)
+            format("woff2");
 }
 @font-face {
-    font-family: "Nunito";
+    font-family: Nunito;
     font-style: normal;
     font-weight: 400;
-    src: local(""), url(./src/fonts/Nunito-Regular.woff2) format("woff2"),
-        url(./src/fonts/Nunito-Regular.woff) format("woff");
+    src: local(""),
+        url(./src/fonts/nunito-v24-cyrillic-regular.ac1741731b39bc1f5abf.woff2)
+            format("woff2");
 }
 @font-face {
-    font-family: "Nunito";
+    font-family: Nunito;
     font-style: normal;
     font-weight: 600;
-    src: local(""), url(./src/fonts/Nunito-SemiBold.woff2) format("woff2"),
-        url(./src/fonts/Nunito-SemiBold.woff) format("woff");
+    src: local(""),
+        url(./src/fonts/nunito-v24-cyrillic-600.ea9bb316e858c376c2ab.woff2)
+            format("woff2");
 }
 @font-face {
-    font-family: "Nunito";
+    font-family: Nunito;
     font-style: normal;
     font-weight: 700;
-    src: local(""), url(./src/fonts/Nunito-Bold.woff2) format("woff2"),
-        url(./src/fonts/Nunito-Bold.woff) format("woff");
+    src: local(""),
+        url(./src/fonts/nunito-v24-cyrillic-700.17457b80884d06340e5d.woff2)
+            format("woff2");
 }
