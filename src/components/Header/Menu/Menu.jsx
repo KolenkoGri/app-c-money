@@ -1,6 +1,6 @@
 import { clearToken } from "../../../store/token/tokenReducer";
 import style from "./Menu.module.css";
-
+import { NavLink } from "react-router-dom";
 export const Menu = () => {
     const handleEscape = () => {
         clearToken();
@@ -10,7 +10,7 @@ export const Menu = () => {
             <li className={style.item}>Счета</li>
             <li className={style.item}>Обмен</li>
             <li className={style.item} onClick={handleEscape}>
-                Выйти
+                <NavLink to="/exit">Выйти</NavLink>
             </li>
         </ul>
     );

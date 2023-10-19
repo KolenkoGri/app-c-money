@@ -3,18 +3,19 @@ import { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../api/const";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateToken } from "../../store/token/tokenReducer";
 import { updateUser } from "../../store/user/userReducer";
-import { useToken } from "../../hooks/useToken";
+// import { useToken } from "../../hooks/useToken";
 
 export const LoginPage = () => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
     const Navigate = useNavigate();
-    // const token = useSelector((state) => state.token);
-    const token = useToken();
+    const token = useSelector((state) => state.token.token);
+    console.log("token: ", token);
+    // const token = useToken();
 
     const handleLoginChange = (e) => {
         const target = e.target;

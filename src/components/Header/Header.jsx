@@ -1,11 +1,11 @@
-import { useToken } from "../../hooks/useToken";
+import { useSelector } from "react-redux";
 import Layout from "../Layout";
 import style from "./Header.module.css";
 import Logo from "./Logo";
 import Menu from "./Menu";
 
 export const Header = () => {
-    const token = useToken();
+    const token = useSelector((state) => state.token.token);
     return (
         <header className={style.header}>
             <Layout>

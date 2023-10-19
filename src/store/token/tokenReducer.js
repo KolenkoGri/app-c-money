@@ -26,7 +26,7 @@ export const tokenReducer = (state = initialState, action) => {
         case CLEAR_TOKEN:
             return {
                 ...state,
-                token: action.token,
+                token: false,
             };
 
         default:
