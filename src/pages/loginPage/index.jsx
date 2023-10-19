@@ -1,2 +1,2 @@
-import { Login } from "./Login";
-export default Login;
+import { LoginPage } from "./LoginPage";
+export default LoginPage;

@@ -5,6 +5,7 @@
 
 .item {
     margin-right: 30px;
+    cursor: pointer;
 }
 
 .item:last-child {
