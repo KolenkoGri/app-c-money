@@ -1,12 +1,9 @@
 import style from "./LoginPage.module.css";
 import { useState } from "react";
-import axios from "axios";
-import { API_URL } from "../../api/const";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { updateToken } from "../../store/token/tokenReducer";
-import { updateUser } from "../../store/user/userReducer";
-// import { useToken } from "../../hooks/useToken";
+import { tokenRequestAsync } from "../../store/token/tokenAction";
+import { useToken } from "../../hooks/useToken";
 
 export const LoginPage = () => {
     const [login, setLogin] = useState("");
@@ -14,8 +11,7 @@ export const LoginPage = () => {
     const dispatch = useDispatch();
     const Navigate = useNavigate();
     const token = useSelector((state) => state.token.token);
-    console.log("token: ", token);
-    // const token = useToken();
+    useToken(token);
 
     const handleLoginChange = (e) => {
         const target = e.target;
@@ -27,28 +23,8 @@ export const LoginPage = () => {
         setPassword(target.value);
     };
 
-    const handleSubmit = () => {
-        axios({
-            method: "post",
-            url: `${API_URL}/login`,
-            data: {
-                login,
-                password,
-            },
-        })
-            .then(
-                ({
-                    data: {
-                        payload: { token },
-                    },
-                }) => {
-                    dispatch(updateToken(token));
-                    dispatch(updateUser(login));
-                }
-            )
-            .catch((error) => {
-                console.log(error);
-            });
+    const handleSubmit = async () => {
+        tokenRequestAsync(login, password, dispatch);
     };
 
     return token ? (
@@ -78,8 +54,8 @@ export const LoginPage = () => {
                     onChange={handlePasswordChange}
                 />
             </div>
-            <div className={style.buttonBox} tabIndex={3}>
-                <button className={style.button} onClick={() => handleSubmit()}>
+            <div tabIndex={3}>
+                <button className={style.button} onClick={handleSubmit}>
                     <span className={style.value}>Войти</span>
                 </button>
             </div>

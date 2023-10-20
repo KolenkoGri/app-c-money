@@ -55,6 +55,7 @@
 .input:hover {
     border: 2px solid #b865d6;
 }
+
 .button {
     border: 0;
     border-radius: 10px;
@@ -63,6 +64,10 @@
     width: 380px;
     height: 70px;
     font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button:hover {
@@ -75,10 +80,4 @@
 
 .button:active {
     background: #2e00b1;
-}
-
-.value {
-    display: block;
-    margin: 0px auto;
-    font-weight: 700;
 }

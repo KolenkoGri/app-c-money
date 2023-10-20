@@ -7,6 +7,7 @@ import { AccountsPage } from "./pages/accountsPage/accountsPage";
 import { Route, Routes } from "react-router-dom";
 import Page404 from "./pages/Page404";
 import ExitPage from "./pages/exitPage";
+import { DetailPage } from "./pages/DetailPage/DetailPage";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                         <Route path="/accounts" element={<AccountsPage />} />
                         <Route path="/exit" element={<ExitPage />} />
                         <Route path="*" element={<Page404 />} />
+                        <Route path="accounts/:id" element={<DetailPage />} />
                     </Routes>
                 </Layout>
             </Main>

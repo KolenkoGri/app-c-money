@@ -7,8 +7,12 @@ export const Menu = () => {
     };
     return (
         <ul className={style.menu}>
-            <li className={style.item}>Счета</li>
-            <li className={style.item}>Обмен</li>
+            <li className={style.item}>
+                <NavLink to="/accounts">Счета </NavLink>
+            </li>
+            <li className={style.item}>
+                <NavLink to="/exchange">Обмен </NavLink>
+            </li>
             <li className={style.item} onClick={handleEscape}>
                 <NavLink to="/exit">Выйти</NavLink>
             </li>
