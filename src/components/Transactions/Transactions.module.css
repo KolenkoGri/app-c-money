@@ -1,0 +1,79 @@
+.transitionTitle {
+    font-size: 26px;
+    margin: 40px 0px;
+}
+
+.transition {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    width: 100%;
+}
+
+.label {
+    padding-left: 20px;
+    line-height: 1.5;
+}
+
+.input {
+    width: 100%;
+    margin-bottom: 20px;
+    height: 70px;
+    background-color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 10px 5px;
+    font-size: 26px;
+}
+
+.input:focus,
+.input:hover {
+    border: 2px solid #b865d6;
+}
+
+.submit {
+    font-size: 18px;
+    width: 380px;
+    height: 70px;
+}
+
+.transfertMessageError {
+    color: tomato;
+}
+
+.transfertMessageOk {
+    color: greenyellow;
+}
+
+.button {
+    border: 0;
+    border-radius: 10px;
+    background: linear-gradient(to right, #2e00b1, #a400be);
+    color: #fff;
+    width: 380px;
+    height: 70px;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:hover {
+    background: linear-gradient(to left, #2e00b1, #a400be);
+}
+
+.button:focus {
+    background: linear-gradient(to left, #2e00b1, #a400be, #2e00b1);
+}
+
+.button:active {
+    background: #2e00b1;
+}
