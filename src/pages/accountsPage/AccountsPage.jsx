@@ -4,12 +4,12 @@ import { Account } from "../../components/Account/Account";
 import { useEffect } from "react";
 import { accountsRequestAsync } from "../../store/accounts/accountsAction";
 import { newAccRequestAsync } from "../../store/newAccount/newAccountAction";
+import { updateAccounts } from "../../store/accounts/accountsSlice";
 
 export const AccountsPage = () => {
     const token = useSelector((state) => state.token.token);
     const username = useSelector((state) => state.user.user);
     const accounts = useSelector((state) => state.accounts.accounts);
-    console.log("accounts: ", accounts);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -22,8 +22,57 @@ export const AccountsPage = () => {
         newAccRequestAsync();
     };
 
-    const handleSortChange = async () => {
-        // Запрос
+    const handleSortChange = (e) => {
+        const target = e.target.value;
+        let newArr = [...accounts];
+        if (!target) {
+            dispatch(accountsRequestAsync());
+            return;
+        }
+
+        const dateToMillis = (date) => {
+            return Date.parse(date) - Date.parse("1970-01-01T00:00:00.000Z");
+        };
+        newArr.sort((a, b) => {
+            if (target === "date") {
+                if (
+                    dateToMillis(new Date(a[target])).toString() >
+                    dateToMillis(new Date(b[target])).toString()
+                ) {
+                    return 1;
+                }
+                if (
+                    dateToMillis(new Date(a[target])).toString() <
+                    dateToMillis(new Date(b[target])).toString()
+                ) {
+                    return -1;
+                }
+                return 0;
+            } else if (target === "transactions") {
+                if (
+                    dateToMillis(new Date(a[target][0]?.date)).toString() >
+                    dateToMillis(new Date(b[target][0]?.date)).toString()
+                ) {
+                    return 1;
+                }
+                if (
+                    dateToMillis(new Date(a[target][0]?.date)).toString() <
+                    dateToMillis(new Date(b[target][0]?.date)).toString()
+                ) {
+                    return -1;
+                }
+                return 0;
+            } else {
+                if (a[target] > b[target]) {
+                    return 1;
+                }
+                if (a[target] < b[target]) {
+                    return -1;
+                }
+                return 0;
+            }
+        });
+        dispatch(updateAccounts(newArr));
     };
 
     return (
@@ -46,7 +95,8 @@ export const AccountsPage = () => {
                             <option value="">умолчанию</option>
                             <option value="account">номеру счета</option>
                             <option value="balance">балансу</option>
-                            <option value="transaction">
+                            <option value="date">Дате открытия счёта</option>
+                            <option value="transactions">
                                 последней транзакции
                             </option>
                         </select>

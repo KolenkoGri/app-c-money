@@ -6,7 +6,6 @@ export const accountsRequestAsync = createAsyncThunk(
     "accounts/fetch",
     (id, { getState }) => {
         const token = getState().token.token;
-        console.log("token: ", token);
 
         return axios(`${API_URL}/accounts`, {
             headers: {

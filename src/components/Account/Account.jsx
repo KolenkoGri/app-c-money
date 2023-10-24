@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 
 export const Account = ({ data }) => {
-    // console.log("data: ", data);
-
     return (
         <NavLink className={style.link} to={`/accounts/${data.account}`}>
             <div className={style.account} id={data.account}>
@@ -15,7 +13,7 @@ export const Account = ({ data }) => {
                 <div className={style.info}>
                     <span>Открыт</span>
                     <span>последняя операция</span>
-                    <span>17.10.2023</span>
+                    <span>{new Date(data.date).toLocaleDateString()}</span>
                     <span>
                         {data.transactions[0]
                             ? new Date(
