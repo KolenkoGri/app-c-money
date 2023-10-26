@@ -5,12 +5,16 @@ import { useEffect } from "react";
 import { accountsRequestAsync } from "../../store/accounts/accountsAction";
 import { newAccRequestAsync } from "../../store/newAccount/newAccountAction";
 import { updateAccounts } from "../../store/accounts/accountsSlice";
+import { useUser } from "../../hooks/useUser";
+import { CircleLoader } from "react-spinners";
+import { Navigate } from "react-router-dom";
 
 export const AccountsPage = () => {
     const token = useSelector((state) => state.token.token);
-    const username = useSelector((state) => state.user.user);
+    const username = useUser();
     const accounts = useSelector((state) => state.accounts.accounts);
     const dispatch = useDispatch();
+    const status = useSelector((state) => state.accounts.status);
 
     useEffect(() => {
         if (token) {
@@ -75,8 +79,8 @@ export const AccountsPage = () => {
         dispatch(updateAccounts(newArr));
     };
 
-    return (
-        <>
+    return token && username ? (
+        status === "loaded" ? (
             <section className={style.accounts}>
                 <div className={style.titleBox}>
                     <h2>Здравствуйте, {username}</h2>
@@ -108,6 +112,10 @@ export const AccountsPage = () => {
                     ))}
                 </div>
             </section>
-        </>
+        ) : (
+            <CircleLoader color="#FFF" size="250px" />
+        )
+    ) : (
+        <Navigate to="/" />
     );
 };

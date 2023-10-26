@@ -1,0 +1,51 @@
+.realChange {
+    width: 100%;
+    margin-top: 20px;
+    padding-right: 15px;
+}
+
+.realChangeLine {
+    margin-bottom: 20px;
+}
+
+.currencyLine {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.currencyPair {
+    flex: 0 0 auto;
+}
+
+.underline {
+    flex: 1 0 auto;
+    border-bottom: 1px solid #210b36;
+}
+
+.currencyDeltaRed {
+    flex: 0 0 auto;
+    position: relative;
+}
+
+.currencyDeltaGreen {
+    flex: 0 0 auto;
+    position: relative;
+}
+
+.currencyDeltaRed::after {
+    content: "";
+    position: absolute;
+    right: -20px;
+    top: 5px;
+    border: 5px solid transparent;
+    border-top: 5px solid #f00;
+}
+
+.currencyDeltaGreen::after {
+    content: "";
+    position: absolute;
+    right: -20px;
+    border: 5px solid transparent;
+    border-bottom: 5px solid #0f0;
+}

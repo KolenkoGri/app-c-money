@@ -1,0 +1,44 @@
+.exchange {
+    width: 100%;
+    margin: 40px 0px;
+}
+
+.title {
+    font-size: 26px;
+}
+
+.inner {
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.innerBlock {
+    background-color: #392350;
+    border-radius: 10px;
+    padding: 16px 20px;
+    min-height: 150px;
+}
+
+.box {
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.innerTitle {
+    font-size: 20px;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.userCurrenciesLi {
+    margin-bottom: 15px;
+}
+
+.userCurrencies {
+    display: inline-block;
+    width: 50px;
+}
