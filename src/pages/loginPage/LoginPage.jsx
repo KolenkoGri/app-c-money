@@ -12,26 +12,37 @@ export const LoginPage = () => {
     const Navigate = useNavigate();
     const token = useSelector((state) => state.token.token);
     useToken(token);
+    const [formTitle, setFormTitle] = useState("Вход в аккаунт");
+    const [formTitleStyle, setFormTitleStyle] = useState(style.title);
 
     const handleLoginChange = (e) => {
         const target = e.target;
         setLogin(target.value);
+        setFormTitle("Вход в аккаунт");
+        setFormTitleStyle(style.title);
     };
 
     const handlePasswordChange = (e) => {
         const target = e.target;
         setPassword(target.value);
+        setFormTitle("Вход в аккаунт");
+        setFormTitleStyle(style.title);
     };
 
     const handleSubmit = async () => {
-        tokenRequestAsync(login, password, dispatch);
+        if (/^[A-Za-z]\w{5,}/.test(login) && /\w{6,}/.test(password)) {
+            tokenRequestAsync(login, password, dispatch);
+        } else {
+            setFormTitle("Ошибка ввода логина или пароля");
+            setFormTitleStyle(style.titleError);
+        }
     };
 
     return token ? (
         Navigate("/accounts")
     ) : (
         <div className={style.body}>
-            <h2 className={style.title}>Вход в аккаунт</h2>
+            <h2 className={formTitleStyle}>{formTitle}</h2>
             <div className={style.group}>
                 <label className={style.label}>Логин</label>
                 <input

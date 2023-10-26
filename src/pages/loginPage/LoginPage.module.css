@@ -81,3 +81,8 @@
 .button:active {
     background: #2e00b1;
 }
+
+.titleError {
+    font-size: 30px;
+    color: tomato;
+}
