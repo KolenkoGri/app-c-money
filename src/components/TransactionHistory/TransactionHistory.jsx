@@ -3,16 +3,15 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 
 export const TransactionHistory = ({ value }) => {
-    let count = 0;
     const transactions = value.transactions.reverse();
+    const newTrans = [...transactions].slice(0, 8);
     const deposite = (from, to) => (from === value.account ? to : from);
-
     const balance = (from) => (from === value.account ? -1 : 1);
 
     return (
-        <table key={Math.random() * Date.now()} className={style.table}>
-            <thead key={Math.random() * Date.now()}>
-                <tr key={Math.random() * Date.now()}>
+        <table>
+            <thead>
+                <tr>
                     <th width="50%" className={style.tableHead}>
                         Счет
                     </th>
@@ -24,36 +23,29 @@ export const TransactionHistory = ({ value }) => {
                     </th>
                 </tr>
             </thead>
-            <tbody key={Math.random() * Date.now()}>
-                {transactions.map((item) => {
-                    const date = new Date(item.date);
-                    count++;
+            <tbody>
+                {newTrans.map((item) => {
                     return (
-                        <>
-                            {count <= 9 ? (
-                                <tr key={new Date(item.data).getTime()}>
-                                    <td className={style.tableCell}>
-                                        {deposite(item.from, item.to)}
-                                    </td>
-                                    <td
-                                        className={
-                                            balance(item.from) > 0
-                                                ? style.tableCell
-                                                : classNames(
-                                                      style.tableCell,
-                                                      style.negative
-                                                  )
-                                        }
-                                    >
-                                        {item.amount *
-                                            balance(item.from, item.to)}
-                                    </td>
-                                    <td className={style.tableCell}>
-                                        {date.toLocaleDateString()}
-                                    </td>
-                                </tr>
-                            ) : null}
-                        </>
+                        <tr key={new Date(item.date).getTime()}>
+                            <td className={style.tableCell}>
+                                {deposite(item.from, item.to)}
+                            </td>
+                            <td
+                                className={
+                                    balance(item.from) > 0
+                                        ? style.tableCell
+                                        : classNames(
+                                              style.tableCell,
+                                              style.negative
+                                          )
+                                }
+                            >
+                                {item.amount * balance(item.from, item.to)}
+                            </td>
+                            <td className={style.tableCell}>
+                                {new Date(item.date).toLocaleDateString()}
+                            </td>
+                        </tr>
                     );
                 })}
             </tbody>

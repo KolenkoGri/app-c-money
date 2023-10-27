@@ -6,7 +6,6 @@ import LoginPage from "./pages/loginPage";
 import { AccountsPage } from "./pages/accountsPage/accountsPage";
 import { Route, Routes } from "react-router-dom";
 import Page404 from "./pages/Page404";
-import ExitPage from "./pages/exitPage";
 import { DetailPage } from "./pages/DetailPage/DetailPage";
 import { ExchangePage } from "./pages/exchangePage/exchangePage";
 
@@ -19,7 +18,6 @@ function App() {
                     <Routes>
                         <Route path="/" element={<LoginPage />} />
                         <Route path="accounts" element={<AccountsPage />} />
-                        <Route path="exit" element={<ExitPage />} />
                         <Route path="*" element={<Page404 />} />
                         <Route path="accounts/:id" element={<DetailPage />} />
                         <Route path="exchange" element={<ExchangePage />} />
