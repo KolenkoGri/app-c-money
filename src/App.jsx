@@ -18,8 +18,8 @@ function App() {
                 <Layout>
                     <Routes>
                         <Route path="/" element={<LoginPage />} />
-                        <Route path="/accounts" element={<AccountsPage />} />
-                        <Route path="/exit" element={<ExitPage />} />
+                        <Route path="accounts" element={<AccountsPage />} />
+                        <Route path="exit" element={<ExitPage />} />
                         <Route path="*" element={<Page404 />} />
                         <Route path="accounts/:id" element={<DetailPage />} />
                         <Route path="exchange" element={<ExchangePage />} />

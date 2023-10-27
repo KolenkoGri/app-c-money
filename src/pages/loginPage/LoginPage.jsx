@@ -1,17 +1,14 @@
 import style from "./LoginPage.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { tokenRequestAsync } from "../../store/token/tokenAction";
-import { useToken } from "../../hooks/useToken";
 
 export const LoginPage = () => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
     const Navigate = useNavigate();
-    const token = useSelector((state) => state.token.token);
-    useToken(token);
     const [formTitle, setFormTitle] = useState("Вход в аккаунт");
     const [formTitleStyle, setFormTitleStyle] = useState(style.title);
 
@@ -31,16 +28,15 @@ export const LoginPage = () => {
 
     const handleSubmit = async () => {
         if (/^[A-Za-z]\w{5,}/.test(login) && /\w{6,}/.test(password)) {
-            tokenRequestAsync(login, password, dispatch);
+            await tokenRequestAsync(login, password, dispatch);
+            Navigate("/accounts");
         } else {
             setFormTitle("Ошибка ввода логина или пароля");
             setFormTitleStyle(style.titleError);
         }
     };
 
-    return token ? (
-        Navigate("/accounts")
-    ) : (
+    return (
         <div className={style.body}>
             <h2 className={formTitleStyle}>{formTitle}</h2>
             <div className={style.group}>

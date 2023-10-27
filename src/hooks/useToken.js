@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { updateToken } from "../store/token/tokenReducer";
 
-export const useToken = () => {
+export const UseToken = () => {
     const dispatch = useDispatch();
 
     let token = useSelector((state) => state.token.token);

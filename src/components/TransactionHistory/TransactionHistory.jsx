@@ -10,12 +10,9 @@ export const TransactionHistory = ({ value }) => {
     const balance = (from) => (from === value.account ? -1 : 1);
 
     return (
-        <table
-            key={Math.floor(Math.random(1) * Date.now())}
-            className={style.table}
-        >
-            <thead key={Math.floor(Math.random(1) * Date.now())}>
-                <tr key={Math.floor(Math.random(1) * Date.now())}>
+        <table key={Math.random() * Date.now()} className={style.table}>
+            <thead key={Math.random() * Date.now()}>
+                <tr key={Math.random() * Date.now()}>
                     <th width="50%" className={style.tableHead}>
                         Счет
                     </th>
@@ -27,7 +24,7 @@ export const TransactionHistory = ({ value }) => {
                     </th>
                 </tr>
             </thead>
-            <tbody key={Math.floor(Math.random(1) * Date.now())}>
+            <tbody key={Math.random() * Date.now()}>
                 {transactions.map((item) => {
                     const date = new Date(item.date);
                     count++;

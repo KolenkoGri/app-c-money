@@ -2,6 +2,7 @@ import axios from "axios";
 import { API_URL } from "../../api/const";
 import { updateToken } from "./tokenReducer";
 import { updateUser } from "../user/userReducer";
+import { UseToken } from "../../hooks/useToken";
 
 export const tokenRequestAsync = async (login, password, dispatch) => {
     await axios({
@@ -20,9 +21,11 @@ export const tokenRequestAsync = async (login, password, dispatch) => {
             }) => {
                 dispatch(updateToken(token));
                 dispatch(updateUser(login));
+                UseToken();
             }
         )
         .catch((error) => {
-            console.log(error.message);
+            const newErr = error.response;
+            return newErr;
         });
 };
